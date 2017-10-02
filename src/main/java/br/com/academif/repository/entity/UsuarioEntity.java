@@ -17,7 +17,7 @@ public class UsuarioEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idUsuario")
-	private Integer codigo;
+	private Integer idUsuario;
 	
 	@Column(name="matricula")
 	private String matricula;
@@ -46,12 +46,12 @@ public class UsuarioEntity {
 	
 	
 	//Declaração Getters and Setters
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getMatricula() {

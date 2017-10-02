@@ -16,7 +16,7 @@ import br.com.academif.repository.entity.UsuarioEntity;
 //Essa classe vai expor os nossos métodos para serem acessasdos via http
  
 //@Path - Caminho para a chamada da classe que vai representar o nosso serviço
-@Path("/service")
+@Path("/serviceUsuario")
 public class ServiceControllerUsuario {
 
 	private final UsuarioRepository repository = new UsuarioRepository();
@@ -28,7 +28,7 @@ public class ServiceControllerUsuario {
 	@POST
 	@Consumes("application/json; charset=UTF-8")
 	@Produces("application/json; charset=UTF-8")
-	@Path("/cadastrar")
+	@Path("/cadastrarUsuario")
 	public String cadastrarUsuario(Usuario usuario){
 		
 		UsuarioEntity entity = new UsuarioEntity();
@@ -43,7 +43,7 @@ public class ServiceControllerUsuario {
 			entity.setPeriodo(usuario.getPeriodo());
 			entity.setStatusMatricula(usuario.getStatusMatricula());
 			
-			repository.Salvar(entity);
+			repository.salvarUsuario(entity);
 			
 			return "Usuario cadastrado com sucesso!";
 			
@@ -57,7 +57,7 @@ public class ServiceControllerUsuario {
 	@POST
 	@Consumes("application/json; charset=UTF-8")
 	@Produces("application/json; charset=UTF-8")
-	@Path("/alterar")
+	@Path("/alterarUsuario")
 	public String alterarUsuario(Usuario usuario){
 		
 		UsuarioEntity entity = new UsuarioEntity();
@@ -72,7 +72,7 @@ public class ServiceControllerUsuario {
 			entity.setPeriodo(usuario.getPeriodo());
 			entity.setStatusMatricula(usuario.getStatusMatricula());
 			
-			repository.Alterar(entity);
+			repository.alterarUsuario(entity);
 			
 			return "Usuario atualizado com sucesso!";
 			
@@ -95,7 +95,7 @@ public class ServiceControllerUsuario {
 		
 		for (UsuarioEntity entity : listaEntityUsuarios){
 			
-			usuarios.add(new Usuario(entity.getCodigo(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula()));
+			usuarios.add(new Usuario(entity.getIdUsuario(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula()));
 		}
 		
 		return usuarios;
@@ -112,7 +112,7 @@ public class ServiceControllerUsuario {
 		UsuarioEntity entity = repository.getUsuario(cpf);
 			
 		if (entity != null){
-			return new Usuario(entity.getCodigo(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula());
+			return new Usuario(entity.getIdUsuario(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula());
 		}else{
 			return null;
 		}
@@ -123,12 +123,12 @@ public class ServiceControllerUsuario {
 	@POST
 	@Consumes("application/json; charset=UTF-8")
 	@Produces("application/json; charset=UTF-8")
-	@Path("/alterar")
+	@Path("/excluirUsuario")
 	public String excluirUsuario(@PathParam("codigo")Integer codigo){
 			
 		try{
 			
-			repository.Excluir(codigo);
+			repository.excluirUsuario(codigo);
 			
 			return "Usuario excluido com sucesso!";
 			

@@ -54,7 +54,7 @@ public class EventoRepository {
 	}
 	
 	//EXCLUINDO REGISTRO PELO CODIGO**********
-	public void excluirEventos(Integer idEvento){
+	public void excluirEvento(Integer idEvento){
 		
 		this.entityManager.getTransaction().begin();
 		this.entityManager.remove(idEvento);

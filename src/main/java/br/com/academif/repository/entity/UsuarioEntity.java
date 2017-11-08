@@ -1,12 +1,15 @@
 package br.com.academif.repository.entity;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -42,9 +45,10 @@ public class UsuarioEntity {
 
 	
 	//Declaração variaveis externas
+	@OneToMany(mappedBy="usuario")
+	private List<SubEventoEntity> subEventosConfirmados;
 	
-	
-	
+
 	//Declaração Getters and Setters
 	public Integer getIdUsuario() {
 		return idUsuario;
@@ -111,4 +115,12 @@ public class UsuarioEntity {
 	}
 	
 	
+	public List<SubEventoEntity> getSubEventosConfirmados() {
+		return subEventosConfirmados;
+	}
+
+	
+	public void setSubEventosConfirmados(List<SubEventoEntity> subEventosConfirmados) {
+		this.subEventosConfirmados = subEventosConfirmados;
+	}
 }

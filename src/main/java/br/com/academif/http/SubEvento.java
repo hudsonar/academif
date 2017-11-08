@@ -13,7 +13,7 @@ public class SubEvento {
 	
 	
 	//Declaração de variaveis externas
-	
+	private Usuario usuario;
 	
 	//Declaração Construtor
 	public SubEvento(Integer idEvento, String nomeSubEvento, Date dataSubEvento, String horaInicio, String horaFim){

@@ -1,6 +1,9 @@
 package br.com.academif.http;
 
 import java.sql.Date;
+import java.util.List;
+
+import br.com.academif.repository.entity.SubEventoEntity;
 
 public class Evento {
 
@@ -11,7 +14,7 @@ public class Evento {
 	private Date dataFim;
 	
 	//Declaração variaveis externas
-	
+	private List<SubEventoEntity> subEventosConfirmados;
 	
 	//Declaração Construtor
 	public Evento(Integer idEvento, String nomeEvento, Date dataInicio, Date dataFim){

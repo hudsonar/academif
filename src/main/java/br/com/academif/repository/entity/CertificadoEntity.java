@@ -11,37 +11,37 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_frequencia")
-public class FrequenciaEntity {
+@Table(name="tb_certificado")
+public class CertificadoEntity {
 
 	//Declaração de variaveis locais
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idFrequencia")
-	private Integer idFrequencia;
+	@Column(name="idCertificado")
+	private Integer idCertificado;
 	
-	@Column(name="marcacoes")
-	private List<String> marcacoes;
-
-		
+	@Column(name="horasComputadas")
+	private Integer horasComputadas;
+	
+	
 	//Declaração de variaveis externas
 	@OneToMany(mappedBy="usuario")
 	private List<EventoEntity> eventosConfirmados;
 	
-	//Declaração de getters and setters
-	public Integer getIdFrequencia() {
-		return idFrequencia;
+	//Declaração de Getters and Setters
+	public Integer getIdCertificado() {
+		return idCertificado;
 	}
 
-	public void setIdFrequencia(Integer idFrequencia) {
-		this.idFrequencia = idFrequencia;
+	public void setIdCertificado(Integer idCertificado) {
+		this.idCertificado = idCertificado;
 	}
 
-	public List<String> getMarcacoes() {
-		return marcacoes;
+	public Integer getHorasComputadas() {
+		return horasComputadas;
 	}
 
-	public void setMarcacoes(List<String> marcacoes) {
-		this.marcacoes = marcacoes;
+	public void setHorasComputadas(Integer horasComputadas) {
+		this.horasComputadas = horasComputadas;
 	}
 }

@@ -1,6 +1,7 @@
 package br.com.academif.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.websocket.server.PathParam;
 import javax.ws.rs.Consumes;
@@ -8,7 +9,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import java.util.List;
 import br.com.academif.http.Usuario;
 import br.com.academif.repository.UsuarioRepository;
 import br.com.academif.repository.entity.UsuarioEntity;
@@ -95,7 +95,7 @@ public class ServiceControllerUsuario {
 		
 		for (UsuarioEntity entity : listaEntityUsuarios){
 			
-			usuarios.add(new Usuario(entity.getIdUsuario(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula()));
+			usuarios.add(new Usuario(entity.getIdUsuario(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula(), entity.getSubEventosConfirmados()));
 		}
 		
 		return usuarios;
@@ -112,7 +112,7 @@ public class ServiceControllerUsuario {
 		UsuarioEntity entity = repository.getUsuario(cpf);
 			
 		if (entity != null){
-			return new Usuario(entity.getIdUsuario(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula());
+			return new Usuario(entity.getIdUsuario(), entity.getMatricula(), entity.getNome(), entity.getCpf(), entity.getDataNasc(), entity.getCurso(), entity.getPeriodo(), entity.getStatusMatricula(), entity.getSubEventosConfirmados());
 		}else{
 			return null;
 		}

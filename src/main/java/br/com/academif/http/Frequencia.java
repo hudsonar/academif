@@ -10,7 +10,7 @@ public class Frequencia {
 	
 	
 	//Declaração variaveis externas
-	
+	private List<EventoEntity> eventosConfirmados;
 	
 	//Declaração Construtor
 	public Frequencia(Integer idFrequencia, List<String> marcacoes){
